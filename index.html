@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGO Offer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff5a79;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        .option-box {
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .option-box.active {
+            border: 2px solid #ff5a79;
+            background: #fff6f7;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .unit-title {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .size-text {
+            padding: 10px 60px 0;
+        }
+
+        .color-text {
+            padding: 10px 100px 0 0;
+        }
+
+        .text-subtext {
+            padding-left: 20px;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+
+        .discount {
+            background: #ff5a79;
+            color: white;
+            font-size: 12px;
+            padding: 3px 6px;
+            border-radius: 5px;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 16px;
+            display: block;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: gray;
+            font-size: 14px;
+            display: block;
+        }
+
+        .most-popular {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #ff5a79;
+            color: white;
+            font-size: 10px;
+            padding: 3px 6px;
+            border-radius: 5px;
+        }
+
+        .size-color {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 40px;
+            padding-bottom: 10px;
+        }
+
+        .item label {
+            width: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .item select {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .delivery-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom:10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .free-delivery {
+            color: red;
+        }
+
+        .total-price {
+            color: black;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: #ff5a79;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .powered-by {
+            font-size: 12px;
+            text-align: end;
+            margin-top: 10px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 class="title">
+            <span class="line"></span> YAY! It's BOGO <span class="line"></span>
+        </h2>
+
+        <div class="option-box active" onclick="selectOption(1)">
+            <label class="unit-title">
+                <input type="radio" name="quantity" id="unit1" checked>
+                1 Unit
+                <span class="discount">10% Off</span>
+                <span class="price">$10.00 USD</span>
+            </label>
+            <div class="header">
+                <span class="text-subtext">Standard Price</span>
+                <div>
+                    <span class="old-price">$24.00 USD</span>
+                </div>
+            </div>
+            <div class="size-color">
+                <div class="size-color">
+                    <div class="label-row">
+                        <span class="size-text">Size</span>
+                        <span class="color-text">Colour</span>
+                    </div>
+                    <div class="item">
+                        <label>#1</label>
+                        <select><option>S</option><option>M</option><option>L</option></select>
+                        <select><option>Black</option><option>Red</option><option>Blue</option></select>
+                    </div>
+                    <div class="item">
+                        <label>#2</label>
+                        <select><option>S</option><option>M</option><option>L</option></select>
+                        <select><option>Black</option><option>Red</option><option>Blue</option></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="option-box" onclick="selectOption(2)">
+
+            <label class="unit-title">
+                <input type="radio" name="quantity" id="unit2">
+                2 Units
+                <span class="discount">20% Off</span>
+                <span class="price">$18.00 USD</span>
+            </label>
+            <div class="header">
+                <span class="text-subtext">Standard Price</span>
+                <div>
+                    <span class="old-price">$24.00 USD</span>
+                </div>
+            </div>
+            <div class="most-popular">MOST POPULAR</div>
+            <div class="size-color">
+                <div class="label-row">
+                    <span class="size-text">Size</span>
+                    <span class="color-text">Colour</span>
+                </div>
+                <div class="item">
+                    <label>#1</label>
+                    <select><option>S</option><option>M</option><option>L</option></select>
+                    <select><option>Black</option><option>Red</option><option>Blue</option></select>
+                </div>
+                <div class="item">
+                    <label>#2</label>
+                    <select><option>S</option><option>M</option><option>L</option></select>
+                    <select><option>Black</option><option>Red</option><option>Blue</option></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="option-box" onclick="selectOption(3)">
+
+
+            <label class="unit-title">
+                <input type="radio" name="quantity" id="unit3">
+                3 Units
+                <span class="discount">30% Off</span>
+                <span class="price">$24.00 USD</span>
+            </label>
+            <div class="header">
+                <span class="text-subtext">Normal Price</span>
+                <div>
+                    <span class="old-price">$24.00 USD</span>
+                </div>
+            </div>
+            <div class="size-color">
+                <div class="label-row">
+                    <span class="size-text">Size</span>
+                    <span class="color-text">Colour</span>
+                </div>
+                <div class="item">
+                    <label>#1</label>
+                    <select><option>S</option><option>M</option><option>L</option></select>
+                    <select><option>Black</option><option>Red</option><option>Blue</option></select>
+                </div>
+                <div class="item">
+                    <label>#2</label>
+                    <select><option>S</option><option>M</option><option>L</option></select>
+                    <select><option>Black</option><option>Red</option><option>Blue</option></select>
+                </div>
+                <div class="item">
+                    <label>#3</label>
+                    <select><option>S</option><option>M</option><option>L</option></select>
+                    <select><option>Black</option><option>Red</option><option>Blue</option></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="delivery-total">
+            <span class="free-delivery">Free Delivery</span>
+            <span class="total-price">Total: $18.00 USD</span>
+        </div>
+
+        <button class="add-to-cart">+ Add to Cart</button>
+
+        <p class="powered-by">Powered by Pumper</p>
+    </div>
+
+    <script>
+        function selectOption(option) {
+            document.querySelectorAll(".option-box").forEach((box) => {
+                box.classList.remove("active");
+                box.querySelector(".size-color").style.display = "none";
+            });
+
+            let selectedBox = document.querySelector("#unit" + option).closest(".option-box");
+            selectedBox.classList.add("active");
+            selectedBox.querySelector(".size-color").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
